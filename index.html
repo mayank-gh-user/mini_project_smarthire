@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART_HIRE - Skill Extraction & Job Recommendation</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary brand-logo" href="index.html">
+                <i class="bi bi-briefcase-fill me-2"></i>SMART_HIRE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-medium">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="upload.html">Upload Resume</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center text-lg-start py-5">
+        <div class="container pt-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0 section-text">
+                    <h1 class="display-4 fw-bold text-dark mb-3">Find the Right Job with Your <span
+                            class="text-primary">Skills</span></h1>
+                    <p class="lead text-muted mb-4 pe-lg-4">Upload your resume and let SMART_HIRE analyze your skills and
+                        recommend the best job roles for you in seconds.</p>
+                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                        <a href="upload.html" class="btn btn-primary btn-lg px-4 shadow-sm hover-lift">Upload Resume</a>
+                        <a href="#about" class="btn btn-outline-secondary btn-lg px-4 hover-lift">Learn More</a>
+                    </div>
+                </div>
+                <!-- Abstract Illustration Area -->
+                <div class="col-lg-6 text-center position-relative">
+                    <div class="hero-image-wrapper">
+                        <div class="hero-illustration shadow-lg rounded-4 overflow-hidden bg-white p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-3 text-primary me-3">
+                                    <i class="bi bi-file-earmark-text fs-1"></i>
+                                </div>
+                                <div class="text-start">
+                                    <h5 class="mb-1 fw-bold">Resume Parsed</h5>
+                                    <p class="mb-0 text-muted small">Extracting top skills...</p>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-2 mb-4 flex-wrap">
+                                <span class="badge bg-light text-dark border p-2 fw-medium"><i
+                                        class="bi bi-code-slash me-1"></i> HTML</span>
+                                <span class="badge bg-light text-dark border p-2 fw-medium"><i
+                                        class="bi bi-database me-1"></i> SQL</span>
+                                <span class="badge bg-light text-dark border p-2 fw-medium"><i
+                                        class="bi bi-robot me-1"></i> Machine Learning</span>
+                            </div>
+                            <div
+                                class="border rounded-3 p-3 bg-light text-start shadow-sm position-relative overflow-hidden">
+                                <div class="position-absolute border-start border-4 border-success h-100 top-0 start-0">
+                                </div>
+                                <div class="ms-2">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h6 class="mb-0 fw-bold">Data Analyst</h6>
+                                        <span class="text-success fw-bold small">92% Match</span>
+                                    </div>
+                                    <p class="small text-muted mb-0"><i class="bi bi-building me-1"></i> Tech Corp Inc.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blob-shape"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5 bg-light">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-4">About SMART_HIRE</h2>
+                    <div class="card shadow-sm border-0 rounded-4 p-4 p-md-5">
+                        <p class="fs-5 text-muted mb-0">SMART_HIRE is a system that analyzes resumes
+                            and matches candidate skills with job requirements to recommend suitable
+                            roles. SMART_HIRE simplifies the recruitment process for both candidates and
+                            employers by bridging the gap between talent and opportunity.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5 pt-3 text-center g-4">
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 bg-white shadow-sm h-100 border transition-all hover-lift">
+                        <div class="text-primary mb-3">
+                            <i class="bi bi-file-earmark-arrow-up display-5"></i>
+                        </div>
+                        <h5 class="fw-bold">1. Upload Resume</h5>
+                        <p class="text-muted small">Simply upload your PDF resume.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 bg-white shadow-sm h-100 border transition-all hover-lift">
+                        <div class="text-primary mb-3">
+                            <i class="bi bi-cpu display-5"></i>
+                        </div>
+                        <h5 class="fw-bold">2. Analysis</h5>
+                        <p class="text-muted small">Our logic extracts your key skills.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 rounded-4 bg-white shadow-sm h-100 border transition-all hover-lift">
+                        <div class="text-primary mb-3">
+                            <i class="bi bi-bookmark-check display-5"></i>
+                        </div>
+                        <h5 class="fw-bold">3. Get Matched</h5>
+                        <p class="text-muted small">View specific job recommendations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-top py-4 mt-auto">
+        <div class="container text-center">
+            <p class="mb-0 text-muted small">&copy; 2026 SMART_HIRE </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Recommendations - SMART_HIRE</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary brand-logo" href="index.html">
+                <i class="bi bi-briefcase-fill me-2"></i>SMART_HIRE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-medium">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="upload.html">Upload Resume</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <!-- Results Dashboard Header -->
+        <div class="row mb-4 align-items-center">
+            <div class="col-md-8">
+                <h2 class="fw-bold mb-1">Your Recommendations</h2>
+                <p class="text-muted mb-0">Based on your resume analysis</p>
+            </div>
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                <a href="upload.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 shadow-sm hover-lift"><i class="bi bi-arrow-repeat me-1"></i> Analyze Another Resume</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Left Sidebar for Skills -->
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow-sm border-0 rounded-4 sticky-lg-top" style="top: 100px; z-index: 10;">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="bg-primary bg-opacity-10 text-primary me-3 text-center rounded-circle flex-shrink-0" style="width: 48px; height: 48px; line-height: 48px;">
+                                <i class="bi bi-braces-asterisk fs-5"></i>
+                            </div>
+                            <h5 class="fw-bold mb-0">Extracted Skills</h5>
+                        </div>
+                        
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge skill-badge"><i class="bi bi-code-slash me-1"></i> Python</span>
+                            <span class="badge skill-badge"><i class="bi bi-database me-1"></i> SQL</span>
+                            <span class="badge skill-badge"><i class="bi bi-robot me-1"></i> Machine Learning</span>
+                            <span class="badge skill-badge"><i class="bi bi-window me-1"></i> HTML</span>
+                            <span class="badge skill-badge"><i class="bi bi-palette me-1"></i> CSS</span>
+                            <span class="badge skill-badge"><i class="bi bi-bar-chart-fill me-1"></i> Data Analysis</span>
+                        </div>
+                        
+                        <hr class="my-4 text-muted">
+                        
+                        <div class="alert alert-primary border-0 bg-primary bg-opacity-10 rounded-3 mb-0 d-flex gap-2 align-items-start">
+                            <i class="bi bi-info-circle-fill text-primary mt-1"></i>
+                            <div class="text-primary-emphasis text-sm">
+                                <strong>6 key skills found.</strong> We matched your profile against 100+ active roles.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column for Job Cards -->
+            <div class="col-lg-8">
+                <h5 class="fw-bold mb-3 text-dark">Top Job Matches</h5>
+                
+                <!-- Job Card 1 -->
+                <div class="card job-card shadow-sm border-0 rounded-4 mb-4 p-3 hover-lift">
+                    <div class="card-body">
+                        <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
+                            <div class="d-flex gap-3 w-100">
+                                <div class="company-logo bg-light rounded-3 d-flex align-items-center justify-content-center border flex-shrink-0" style="width: 64px; height: 64px;">
+                                    <span class="fw-bold fs-4 text-primary">TCS</span>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="fw-bold mb-1 text-dark">Data Analyst</h5>
+                                    <p class="text-secondary small mb-3"><i class="bi bi-building me-1"></i> Tata Consultancy Services &bull; <i class="bi bi-geo-alt-fill text-danger me-1"></i> Remote</p>
+                                    <div class="d-flex flex-wrap gap-2 align-items-center">
+                                        <span class="text-muted small fw-medium">Matched Skills:</span>
+                                        <span class="badge bg-light text-dark border">Python</span>
+                                        <span class="badge bg-light text-dark border">SQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row flex-md-column justify-content-between align-items-center align-items-md-end gap-3 flex-shrink-0 border-top border-md-0 pt-3 pt-md-0 mt-2 mt-md-0">
+                                <div>
+                                    <span class="badge bg-success bg-opacity-10 text-success border border-success p-2 rounded-pill fw-bold" style="font-size: 0.85rem;">75% Match</span>
+                                </div>
+                                <button class="btn btn-primary rounded-pill px-4 fw-medium">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Card 2 -->
+                <div class="card job-card shadow-sm border-0 rounded-4 mb-4 p-3 hover-lift">
+                    <div class="card-body">
+                        <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
+                            <div class="d-flex gap-3 w-100">
+                                <div class="company-logo bg-light rounded-3 d-flex align-items-center justify-content-center border flex-shrink-0" style="width: 64px; height: 64px;">
+                                    <span class="fw-bold fs-4 text-danger">INF</span>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="fw-bold mb-1 text-dark">Machine Learning Engineer</h5>
+                                    <p class="text-secondary small mb-3"><i class="bi bi-building me-1"></i> Infosys &bull; <i class="bi bi-geo-alt-fill text-danger me-1"></i> Bangalore</p>
+                                    <div class="d-flex flex-wrap gap-2 align-items-center">
+                                        <span class="text-muted small fw-medium">Matched Skills:</span>
+                                        <span class="badge bg-light text-dark border">Machine Learning</span>
+                                        <span class="badge bg-light text-dark border">Python</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row flex-md-column justify-content-between align-items-center align-items-md-end gap-3 flex-shrink-0 border-top border-md-0 pt-3 pt-md-0 mt-2 mt-md-0">
+                                <div>
+                                    <span class="badge bg-success bg-opacity-10 text-success border border-success p-2 rounded-pill fw-bold" style="font-size: 0.85rem;">92% Match</span>
+                                </div>
+                                <button class="btn btn-primary rounded-pill px-4 fw-medium">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Card 3 -->
+                <div class="card job-card shadow-sm border-0 rounded-4 mb-4 p-3 hover-lift">
+                    <div class="card-body">
+                        <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
+                            <div class="d-flex gap-3 w-100">
+                                <div class="company-logo bg-light rounded-3 d-flex align-items-center justify-content-center border flex-shrink-0" style="width: 64px; height: 64px;">
+                                    <span class="fw-bold fs-4 text-info">WIP</span>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="fw-bold mb-1 text-dark">Frontend Developer</h5>
+                                    <p class="text-secondary small mb-3"><i class="bi bi-building me-1"></i> Wipro &bull; <i class="bi bi-geo-alt-fill text-danger me-1"></i> Pune</p>
+                                    <div class="d-flex flex-wrap gap-2 align-items-center">
+                                        <span class="text-muted small fw-medium">Matched Skills:</span>
+                                        <span class="badge bg-light text-dark border">HTML</span>
+                                        <span class="badge bg-light text-dark border">CSS</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row flex-md-column justify-content-between align-items-center align-items-md-end gap-3 flex-shrink-0 border-top border-md-0 pt-3 pt-md-0 mt-2 mt-md-0">
+                                <div>
+                                    <span class="badge bg-warning bg-opacity-10 text-warning border border-warning p-2 rounded-pill fw-bold" style="font-size: 0.85rem;">60% Match</span>
+                                </div>
+                                <button class="btn btn-primary rounded-pill px-4 fw-medium">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-top py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0 text-muted small">&copy; 2026 SMART_HIRE. College Mini Project.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

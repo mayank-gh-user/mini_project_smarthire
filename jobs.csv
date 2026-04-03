@@ -1,0 +1,11 @@
+Job ID,Company,Role,Required Skills
+1,Google,Software Engineer,Python|Java|C++|Algorithms|Data Structures
+2,Microsoft,Data Scientist,Python|Machine Learning|SQL|Pandas|TensorFlow
+3,Amazon,Frontend Developer,HTML|CSS|JavaScript|React|Redux
+4,Meta,Backend Developer,Python|Django|Flask|REST API|PostgreSQL
+5,Apple,iOS Developer,Swift|Objective-C|iOS SDK|UIkit|Core Data
+6,Netflix,Cloud Engineer,AWS|Python|Kubernetes|Docker|Linux
+7,Spotify,Data Analyst,SQL|Python|Tableau|Excel|Statistics
+8,Uber,Full Stack Developer,JavaScript|React|Node.js|MongoDB|Express
+9,Airbnb,DevOps Engineer,Linux|AWS|Jenkins|Ansible|Docker
+10,Tesla,Machine Learning Engineer,Python|PyTorch|Deep Learning|Computer Vision|C++

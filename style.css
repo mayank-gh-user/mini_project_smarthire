@@ -1,0 +1,176 @@
+/* Custom CSS for SMART_HIRE */
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --text-main: #334155;
+    --bg-light: #f8fafc;
+    --border-color: #e2e8f0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-light);
+}
+
+/* Typography & Colors */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Animations */
+.hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.job-card {
+    transition: all 0.3s ease;
+    border: 1px solid transparent !important;
+}
+
+.job-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+    border-color: rgba(37, 99, 235, 0.2) !important;
+}
+
+/* Custom Components */
+.brand-logo {
+    letter-spacing: -0.5px;
+    font-size: 1.5rem;
+}
+
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--bg-light);
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(37,99,235,0.08) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.section-text, .hero-image-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-illustration {
+    position: relative;
+    z-index: 2;
+    transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+    transition: transform 0.5s ease;
+}
+
+.hero-illustration:hover {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+}
+
+.blob-shape {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background-color: var(--primary-color);
+    filter: blur(80px);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 0.15;
+}
+
+/* Upload Area Styles */
+.upload-zone {
+    border: 2px dashed #cbd5e1;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    background-color: #f8fafc;
+    cursor: pointer;
+}
+
+.upload-zone:hover, .upload-zone.dragover {
+    border-color: var(--primary-color);
+    background-color: #eff6ff;
+}
+
+.upload-zone.dragover {
+    transform: scale(1.02);
+}
+
+.upload-icon {
+    transition: transform 0.3s ease;
+}
+
+.upload-zone:hover .upload-icon {
+    transform: translateY(-5px);
+}
+
+/* Badges */
+.skill-badge {
+    background-color: #eff6ff;
+    color: var(--primary-color);
+    border: 1px solid #dbeafe;
+    padding: 0.5rem 0.8rem;
+    font-weight: 500;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.skill-badge:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Company Logos */
+.company-logo {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    background-color: white !important;
+}
+
+/* Utilities */
+.shadow-inner {
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+}
+
+.transition-all {
+    transition: all 0.3s ease;
+}
