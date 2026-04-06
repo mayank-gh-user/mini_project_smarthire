@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - SMART_HIRE{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light min-vh-100">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <div>
+                <h1 class="fw-bold h2 mb-1">Company Dashboard</h1>
+                <p class="text-muted">Manage your job openings and view matching candidates.</p>
+            </div>
+            <a href="{{ url_for('add_job') }}" class="btn btn-primary d-flex align-items-center py-2 px-4 shadow-sm hover-lift">
+                <i data-lucide="plus" class="me-2" style="width: 20px;"></i> Post New Job
+            </a>
+        </div>
+
+        <div class="row g-4">
+            {% if jobs %}
+                {% for job in jobs %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 shadow-sm rounded-4 h-100 p-4 job-card">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <i data-lucide="briefcase" class="text-primary mt-1" style="width: 28px; height: 28px;"></i>
+                            <span class="badge bg-light text-primary border border-primary-subtle fw-medium px-3 py-2 rounded-pill small">Active</span>
+                        </div>
+                        <h4 class="fw-bold h5 mb-2">{{ job.role }}</h4>
+                        <p class="text-muted small mb-4" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; height: 3rem;">{{ job.description or 'No description provided.' }}</p>
+                        
+                        <div class="mb-4">
+                            <p class="mb-2 text-dark fw-medium small">Required Skills:</p>
+                            <div class="d-flex flex-wrap gap-2">
+                                {% for skill in job.required_skills.split('|') %}
+                                    <span class="skill-badge">{{ skill.strip() }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                        <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+                            <a href="{{ url_for('job_candidates', job_id=job.id) }}" class="btn btn-outline-primary btn-sm px-4 rounded-pill fw-medium">
+                                <i data-lucide="users" class="me-1" style="width: 14px;"></i> View Candidates
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-12 text-center py-5">
+                    <div class="bg-white rounded-5 p-5 shadow-sm">
+                        <i data-lucide="inbox" class="text-muted mb-4 opacity-25" style="width: 80px; height: 80px;"></i>
+                        <h3 class="fw-bold text-dark">No Jobs Posted Yet</h3>
+                        <p class="text-muted mb-4">Start your recruitment journey by posting your first job role.</p>
+                        <a href="{{ url_for('add_job') }}" class="btn btn-primary px-5 py-3 rounded-pill fw-bold hover-lift">Post Your First Job</a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

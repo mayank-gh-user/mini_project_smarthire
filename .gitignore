@@ -7,8 +7,13 @@ venv/
 env/
 .env/
 
+# Database
+*.db
+instance/
+
 # Project Specific
 uploads/
+check_db.py
 
 # IDEs
 .vscode/

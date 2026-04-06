@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Register - SMART_HIRE{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light min-vh-100 d-flex align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card border-0 shadow-sm rounded-4 p-4 p-lg-5">
+                    <div class="text-center mb-4">
+                        <i data-lucide="zap" class="text-primary mb-3" style="width: 48px; height: 48px;"></i>
+                        <h2 class="fw-bold h3 mb-1">Company Registration</h2>
+                        <p class="text-muted">Start hiring top talent with SMART_HIRE.</p>
+                    </div>
+                    
+                    <form action="{{ url_for('register') }}" method="POST">
+                        <div class="mb-3">
+                            <label class="form-label fw-medium small">Company Name</label>
+                            <input type="text" name="company_name" class="form-control form-control-lg bg-light border-0 shadow-none px-4" placeholder="Enter company name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium small">Username</label>
+                            <input type="text" name="username" class="form-control form-control-lg bg-light border-0 shadow-none px-4" placeholder="Enter username" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-medium small">Password</label>
+                            <input type="password" name="password" class="form-control form-control-lg bg-light border-0 shadow-none px-4" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100 fw-semibold mb-4 py-3 hover-lift">Register Company</button>
+                    </form>
+                    
+                    <div class="text-center">
+                        <p class="mb-0 text-muted small">Already registered? <a href="{{ url_for('login') }}" class="text-primary fw-semibold">Sign in here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

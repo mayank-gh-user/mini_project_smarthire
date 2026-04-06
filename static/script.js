@@ -89,16 +89,41 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Simulate Analysis Loading
+        // Actual Analysis with File Upload
         if (analyzeBtn) {
             analyzeBtn.addEventListener('click', () => {
+                const file = fileInput.files[0];
+                if (!file) return;
+
                 filePreview.classList.add('d-none');
                 loadingState.classList.remove('d-none');
                 
-                // Simulate 2.5 seconds of loading, then redirect
-                setTimeout(() => {
-                    window.location.href = 'results.html';
-                }, 2500);
+                const formData = new FormData();
+                formData.append('file', file);
+
+                fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.redirect) {
+                        // Delay slightly for visual effect
+                        setTimeout(() => {
+                            window.location.href = data.redirect;
+                        }, 1000);
+                    } else if (data.error) {
+                        alert('Error: ' + data.error);
+                        loadingState.classList.add('d-none');
+                        filePreview.classList.remove('d-none');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error uploading file:', error);
+                    alert('An error occurred during resume analysis.');
+                    loadingState.classList.add('d-none');
+                    filePreview.classList.remove('d-none');
+                });
             });
         }
     }

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Post Job - SMART_HIRE{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light min-vh-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <div class="card border-0 shadow-sm rounded-4 p-4 p-lg-5">
+                    <div class="text-center mb-5">
+                        <h1 class="fw-bold h2 mb-1 text-primary">Post New Job</h1>
+                        <p class="text-muted">Fill in the details to find the best talent.</p>
+                    </div>
+                    
+                    <form action="{{ url_for('add_job') }}" method="POST">
+                        <div class="mb-4">
+                            <label class="form-label fw-bold small text-uppercase">Job Role</label>
+                            <input type="text" name="role" class="form-control form-control-lg bg-light border-0 shadow-none px-4" placeholder="e.g. Senior Python Developer" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="form-label fw-bold small text-uppercase">Required Skills</label>
+                            <input type="text" name="required_skills" class="form-control form-control-lg bg-light border-0 shadow-none px-4" placeholder="e.g. Python|Flask|SQL|Pandas (Use | to separate)" required>
+                            <div class="form-text mt-2 small text-muted">Use a vertical pipe **|** to separate multiple skills.</div>
+                        </div>
+                        
+                        <div class="mb-5">
+                            <label class="form-label fw-bold small text-uppercase">Description</label>
+                            <textarea name="description" class="form-control form-control-lg bg-light border-0 shadow-none px-4 py-3" style="height: 150px;" placeholder="Describe the job role and responsibilities..."></textarea>
+                        </div>
+                        
+                        <div class="d-flex gap-3">
+                            <button type="submit" class="btn btn-primary btn-lg flex-grow-1 fw-bold py-3 hover-lift shadow-sm">Post Job Opening</button>
+                            <a href="{{ url_for('company_dashboard') }}" class="btn btn-outline-secondary btn-lg flex-grow-1 fw-bold py-3 px-4 hover-lift">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

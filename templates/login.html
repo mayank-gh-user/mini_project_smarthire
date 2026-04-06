@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Login - SMART_HIRE{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light min-vh-100 d-flex align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card border-0 shadow-sm rounded-4 p-4 p-lg-5">
+                    <div class="text-center mb-4">
+                        <i data-lucide="building" class="text-primary mb-3" style="width: 48px; height: 48px;"></i>
+                        <h2 class="fw-bold h3 mb-1">Company Login</h2>
+                        <p class="text-muted">Welcome back! Sign in to manage your jobs.</p>
+                    </div>
+                    
+                    <form action="{{ url_for('login') }}" method="POST">
+                        <div class="mb-3">
+                            <label class="form-label fw-medium small">Username</label>
+                            <input type="text" name="username" class="form-control form-control-lg bg-light border-0 shadow-none px-4" placeholder="Enter username" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-medium small">Password</label>
+                            <div class="position-relative">
+                                <input type="password" name="password" class="form-control form-control-lg bg-light border-0 shadow-none px-4" placeholder="••••••••" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100 fw-semibold mb-4 py-3 hover-lift">Sign In</button>
+                    </form>
+                    
+                    <div class="text-center">
+                        <p class="mb-0 text-muted small">Don't have an account? <a href="{{ url_for('register') }}" class="text-primary fw-semibold">Register your company</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
