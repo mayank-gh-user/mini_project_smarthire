@@ -40,6 +40,31 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+# Serve uploaded files from the uploads directory
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
+@app.route('/delete-resume/<int:resume_id>', methods=['POST'])
+@login_required
+def delete_resume(resume_id):
+    resume = Resume.query.get_or_404(resume_id)
+    try:
+        # Delete file from storage
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], resume.filename)
+        if os.path.exists(filepath):
+            os.remove(filepath)
+            
+        # Delete from DB
+        db.session.delete(resume)
+        db.session.commit()
+        flash('Candidate resume removed successfully.', 'success')
+    except Exception as e:
+        db.session.rollback()
+        flash(f'Error removing resume: {str(e)}', 'error')
+        
+    return redirect(request.referrer or url_for('company_dashboard'))
+
 # Serve the frontend
 @app.route('/')
 def serve_index():
@@ -78,7 +103,8 @@ def upload_file():
             
             # Save resume and skills to the database for company viewing
             skills_str = "|".join(skills)
-            new_resume = Resume(filename=filename, extracted_skills=skills_str)
+            candidate_name = request.form.get('candidate_name', 'Unknown')
+            new_resume = Resume(filename=filename, candidate_name=candidate_name, extracted_skills=skills_str)
             db.session.add(new_resume)
             db.session.commit()
             
@@ -175,6 +201,7 @@ def job_candidates(job_id):
     resumes_list = [{
         'id': r.id,
         'filename': r.filename,
+        'candidate_name': r.candidate_name or 'N/A',
         'skills': r.extracted_skills.split('|')
     } for r in resumes]
     

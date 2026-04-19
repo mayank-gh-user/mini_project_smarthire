@@ -79,6 +79,7 @@ def match_candidates(job_skills, resumes_list):
             matched_candidates.append({
                 'id': resume.get('id'),
                 'filename': resume.get('filename'),
+                'candidate_name': resume.get('candidate_name', 'Unknown'),
                 'match_score': round(match_score, 2),
                 'matched_skills': list(matched_skills)
             })

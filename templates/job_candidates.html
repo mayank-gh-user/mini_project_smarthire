@@ -30,8 +30,13 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="card border-0 shadow-sm rounded-4 h-100 p-4 job-card">
                         <div class="d-flex justify-content-between align-items-start mb-4">
-                            <div class="bg-primary rounded-3 p-3">
+                            <div class="bg-primary rounded-3 p-3 position-relative">
                                 <i data-lucide="user" class="text-white" style="width: 24px; height: 24px;"></i>
+                                {% if candidate.candidate_name and candidate.candidate_name != 'N/A' %}
+                                    <div class="position-absolute top-100 start-100 translate-middle badge rounded-circle bg-white text-primary border border-primary-subtle shadow-sm" style="width: 24px; height: 24px; padding: 0.2rem; font-size: 10px; line-height: 16px;">
+                                        {{ candidate.candidate_name[:1].upper() }}
+                                    </div>
+                                {% endif %}
                             </div>
                             <div class="text-end">
                                 <div class="h3 fw-bold text-primary mb-0">{{ candidate.match_score }}%</div>
@@ -39,7 +44,13 @@
                             </div>
                         </div>
                         
-                        <h4 class="fw-bold h5 mb-3">{{ candidate.filename }}</h4>
+                        <div class="mb-3">
+                            <span class="text-muted small fw-bold text-uppercase ls-wide d-block mb-1">Candidate</span>
+                            <h4 class="fw-bold h4 mb-1 text-dark">{{ candidate.candidate_name }}</h4>
+                            <p class="text-muted small mb-0 d-flex align-items-center opacity-75">
+                                <i data-lucide="file" class="me-1" style="width: 12px;"></i> {{ candidate.filename }}
+                            </p>
+                        </div>
                         
                         <div class="mb-4">
                             <p class="mb-2 text-dark fw-bold small text-uppercase">Extracted Skills:</p>
@@ -51,9 +62,14 @@
                         </div>
                         
                         <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
-                            <a href="/uploads/{{ candidate.filename }}" target="_blank" class="btn btn-outline-primary btn-sm px-4 rounded-pill fw-medium d-flex align-items-center">
+                            <a href="{{ url_for('uploaded_file', filename=candidate.filename) }}" target="_blank" class="btn btn-outline-primary btn-sm px-4 rounded-pill fw-medium d-flex align-items-center">
                                 <i data-lucide="file-text" class="me-1" style="width: 14px;"></i> View Resume
                             </a>
+                            <form action="{{ url_for('delete_resume', resume_id=candidate.id) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to remove this resume from the system?')">
+                                <button type="submit" class="btn btn-outline-danger btn-sm border-0 rounded-circle p-2 hover-lift" title="Remove Resume">
+                                    <i data-lucide="trash-2" style="width: 18px; height: 18px;"></i>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -95,11 +95,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 const file = fileInput.files[0];
                 if (!file) return;
 
+                const nameInput = document.getElementById('candidate-name');
+                const candidateName = nameInput ? nameInput.value.trim() : "";
+                
+                if (!candidateName) {
+                    alert('Please enter your full name before proceeding.');
+                    return;
+                }
+
                 filePreview.classList.add('d-none');
                 loadingState.classList.remove('d-none');
                 
                 const formData = new FormData();
                 formData.append('file', file);
+                formData.append('candidate_name', candidateName);
 
                 fetch('/upload', {
                     method: 'POST',
